@@ -41,7 +41,7 @@ while 1:
     print(filetouse)
     try:
         # Check wether the file exist in the cache
-        f = open(filetouse[1:], "wr")
+        f = open(filetouse[1:], "w")
         outputdata = f.readlines()
         fileExist = "true"
 
@@ -73,7 +73,8 @@ while 1:
                 # Create a temporary file on this socket and ask port 80
                 # for the file requested by the client
                 fileobj = c.makefile('wr', 1)
-                fileobj.write("GET "+"http://" + filename + "HTTP/1.0\n\n")
+                print(filename)
+                fileobj.write("GET "+"http://" + filename + " HTTP/1.0\n\n")
 
                 # Read the response into buffer
                 # Fill in start.
